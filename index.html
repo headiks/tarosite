@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <link rel="stylesheet" href="card.css">
+</head>
+<body data-theme="synthwave" class="flex items-center justify-center min-h-screen">
+    <div class="grid grid-cols-5 gap-4">
+        <div class="card bg-gray-800 shadow-xl cursor-pointer relative" id="card-0">
+            <img src="images/back.jpg" class="card-img w-40 h-60 object-cover" id="img-0">
+            <div class="card-title absolute bottom-2 left-0 right-0 text-center text-white bg-gray-700 bg-opacity-60 p-2 hidden" id="title-0"></div>
+        </div>
+        <div class="card bg-gray-800 shadow-xl cursor-pointer relative" id="card-1">
+            <img src="images/back.jpg" class="card-img w-40 h-60 object-cover" id="img-1">
+            <div class="card-title absolute bottom-2 left-0 right-0 text-center text-white bg-gray-700 bg-opacity-60 p-2 hidden" id="title-1"></div>
+        </div>
+        <div class="card bg-gray-800 shadow-xl cursor-pointer relative" id="card-2">
+            <img src="images/back.jpg" class="card-img w-40 h-60 object-cover" id="img-2">
+            <div class="card-title absolute bottom-2 left-0 right-0 text-center text-white bg-gray-700 bg-opacity-60 p-2 hidden" id="title-2"></div>
+        </div>
+        <div class="card bg-gray-800 shadow-xl cursor-pointer relative" id="card-3">
+            <img src="images/back.jpg" class="card-img w-40 h-60 object-cover" id="img-3">
+            <div class="card-title absolute bottom-2 left-0 right-0 text-center text-white bg-gray-700 bg-opacity-60 p-2 hidden" id="title-3"></div>
+        </div>
+        <div class="card bg-gray-800 shadow-xl cursor-pointer relative" id="card-4">
+            <img src="images/back.jpg" class="card-img w-40 h-60 object-cover" id="img-4">
+            <div class="card-title absolute bottom-2 left-0 right-0 text-center text-white bg-gray-700 bg-opacity-60 p-2 hidden" id="title-4"></div>
+        </div>
+    </div>
+
+    <script src="animation.js"></script>
+</body>
+</html>
