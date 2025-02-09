@@ -31,11 +31,12 @@ function revealCard(index) {
             selectedCards.push(cardName);
 
             if (selectedCards.length === 3) {
-                sendSelectedCards();
+                // Ждем 500 мс перед отправкой данных, чтобы завершилась анимация
+                setTimeout(sendSelectedCards, 500);
             }
 
             cardContainer.onclick = null;
-        }, 500);
+        }, 500); // Время на скрытие и отображение карты
     }
 }
 
