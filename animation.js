@@ -1,4 +1,13 @@
-const cardImages = ["Колесо фортуны.jpg", "Луна.jpg", "Повешенный.jpg", "мир.jpg", "умеренность.jpg"];
+const cardImages = [
+    "Колесо Фортуны.jpg", 
+    "Луна.jpg", 
+    "Мир.jpg", 
+    "Повешенный.jpg", 
+    "Умеренность.jpg",
+    "Император.jpg", 
+    "Жрица.jpg"
+];
+
 let shuffledImages = [...cardImages].sort(() => 0.5 - Math.random());
 let selectedCards = [];
 
@@ -7,40 +16,36 @@ function revealCard(index) {
     const cardContainer = card.parentElement;
 
     if (shuffledImages.length > 0 && selectedCards.length < 3) {
-        card.classList.add("hidden"); // Исчезновение
+        card.classList.add("hidden");
 
         setTimeout(() => {
-            const newImage = shuffledImages.shift(); // Берем случайную картинку
+            const newImage = shuffledImages.shift(); 
             card.src = `images/${newImage}`;
             card.classList.remove("hidden");
-            card.classList.add("visible"); // Плавное появление
+            card.classList.add("visible");
 
-            // Показать название карты
-            let cardName = newImage.replace(".jpg", ""); // Убираем .jpg
+            let cardName = newImage.replace(".jpg", "");
             cardContainer.querySelector(".card-title").innerText = cardName;
             cardContainer.classList.add("revealed");
 
-            // Добавляем карту в список выбранных
             selectedCards.push(cardName);
 
-            // Если выбраны 3 карты, формируем JSON и отправляем в Telegram WebApp
             if (selectedCards.length === 3) {
                 sendSelectedCards();
             }
 
-            cardContainer.onclick = null; // Отключаем повторный клик
+            cardContainer.onclick = null;
         }, 500);
     }
 }
 
-// Функция отправки данных в Telegram Mini App
 function sendSelectedCards() {
     const jsonData = JSON.stringify({ selectedCards });
 
     if (window.Telegram && window.Telegram.WebApp) {
-        Telegram.WebApp.sendData(jsonData); // Отправляем JSON в Telegram WebApp
-        Telegram.WebApp.close(); // Закрываем Mini App после отправки
+        Telegram.WebApp.sendData(jsonData);
+        Telegram.WebApp.close();
     } else {
-        console.log("Выбранные карты:", jsonData); // Отладка в браузере
+        console.log("Выбранные карты:", jsonData);
     }
 }
